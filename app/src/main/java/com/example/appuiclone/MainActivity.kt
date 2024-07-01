@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<LinearLayout>(R.id.button1)
 
         button.setOnClickListener{
-
+            println("hello kotlin")
         }
     }
 }

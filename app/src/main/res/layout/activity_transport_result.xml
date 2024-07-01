@@ -19,26 +19,21 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginTop="20dp"
+        android:layout_weight="0"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.5">
-        <TextView
-            android:id="@+id/tv_transport"
+        android:padding="20dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:id="@+id/lv_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="번역 결과"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title"/>
-    </LinearLayout>
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/btn_finish"

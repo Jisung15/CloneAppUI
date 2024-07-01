@@ -1,14 +1,17 @@
 package com.example.appuiclone
 
+import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.widget.ArrayAdapter
+import android.view.View
 import android.widget.Button
-import android.widget.ListView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.setMargins
 
 class TransportResultActivity : AppCompatActivity() {
 
@@ -22,14 +25,31 @@ class TransportResultActivity : AppCompatActivity() {
             insets
         }
 
-        val value = findViewById<TextView>(R.id.tv_transport)
         val finishButton = findViewById<Button>(R.id.btn_finish)
+        val value = findViewById<LinearLayout>(R.id.lv_value)
 
-        val text = intent.getStringExtra("text")
-        value.text = "번역 결과\n\n한국어 : ${text}\n영어 : (대충 영어로 번역한 결과)"
+        val text1 = intent.getStringExtra("text")
 
         finishButton.setOnClickListener {
-            finish()
+
+            val textView = TextView(this).apply {
+                text = "번역 결과\n${text1}\n\n영어 번역 결과 : (대충 영어로 번역한 결과)"
+                textSize = 15f
+                setTypeface(typeface, android.graphics.Typeface.BOLD)
+                layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT).apply {
+                    setMargins(0, 30, 0, 30)
+                }
+            }
+            value.addView(textView)
+
+            val div = View(this).apply {
+                layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 10).apply {
+                    setMargins(0, 0, 0, 0)
+                }
+                setBackgroundColor(Color.BLACK)
+            }
+            value.addView(div)
+
         }
     }
 }

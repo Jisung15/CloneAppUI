@@ -112,14 +112,16 @@
         android:orientation="vertical"
         android:layout_marginTop="10dp">
 
-        <TextView
+        <EditText
             android:id="@+id/tv_language"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.4"
             android:gravity="center"
             android:hint="번역할 내용을 입력하세요"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:inputType="text"
+            android:background="@null"/>
 
         <LinearLayout
             android:id="@+id/button"

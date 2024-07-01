@@ -33,7 +33,7 @@ class TransportResultActivity : AppCompatActivity() {
         finishButton.setOnClickListener {
 
             val textView = TextView(this).apply {
-                text = "번역 결과\n${text1}\n\n영어 번역 결과 : (대충 영어로 번역한 결과)"
+                text = "번역할 내용\n${text1}\n\n해당 내용 영어 번역 결과\n(대충 영어로 번역한 결과)"
                 textSize = 15f
                 setTypeface(typeface, android.graphics.Typeface.BOLD)
                 layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT).apply {

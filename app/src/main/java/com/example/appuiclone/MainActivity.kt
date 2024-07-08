@@ -20,12 +20,16 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val transportButton = findViewById<LinearLayout>(R.id.button1)
-        val transportText = findViewById<EditText>(R.id.tv_language)
+        val transportButton = findViewById<LinearLayout>(R.id.button)
 
-        transportButton.setOnClickListener{
+        transportButton.setOnClickListener {
+            val transportText = findViewById<EditText>(R.id.tv_language)
+            val text = transportText.text.toString()
+
             val intent = Intent(this, TransportResultActivity::class.java)
-            intent.putExtra("text", transportText.text.toString())
+            intent.putExtra("text", text)
+            val transport = text
+            TransPort.add(transport)
             startActivity(intent)
         }
     }

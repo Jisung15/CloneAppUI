@@ -56,24 +56,6 @@ class TransportResultActivity : AppCompatActivity() {
 
         finishButton.setOnClickListener {
             finish()
-
-//            val textView = TextView(this).apply {
-//                text = "번역할 내용\n${text1}\n\n해당 내용 영어 번역 결과\n(대충 영어로 번역한 결과)"
-//                textSize = 15f
-//                setTypeface(typeface, android.graphics.Typeface.BOLD)
-//                layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT).apply {
-//                    setMargins(0, 30, 0, 30)
-//                }
-//            }
-//            value.addView(textView)
-//
-//            val div = View(this).apply {
-//                layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 10).apply {
-//                    setMargins(0, 0, 0, 0)
-//                }
-//                setBackgroundColor(Color.BLACK)
-//            }
-//            value.addView(div)
         }
     }
 }

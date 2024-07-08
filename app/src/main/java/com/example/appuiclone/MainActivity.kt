@@ -1,5 +1,6 @@
 package com.example.appuiclone
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
@@ -26,10 +27,17 @@ class MainActivity : AppCompatActivity() {
             val transportText = findViewById<EditText>(R.id.tv_language)
             val text = transportText.text.toString()
 
+            val sharedPreferences = getSharedPreferences("transport", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            val current = sharedPreferences.getStringSet("text", mutableSetOf()) ?: mutableSetOf()
+            current.add(text)
+            editor.putStringSet("text", current)
+            editor.apply()
+
             val intent = Intent(this, TransportResultActivity::class.java)
-            intent.putExtra("text", text)
-            val transport = text
-            TransPort.add(transport)
+//            intent.putExtra("text", text)
+//            val transport = text
+//            TransPort.add(transport)
             startActivity(intent)
         }
     }

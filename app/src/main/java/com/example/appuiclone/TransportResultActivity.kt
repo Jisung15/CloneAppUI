@@ -1,6 +1,7 @@
 package com.example.appuiclone
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ContentInfoCompat.Flags
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -53,6 +55,13 @@ class TransportResultActivity : AppCompatActivity() {
             value.addView(div)
         }
 
+        val clearButton = findViewById<Button>(R.id.btn_clear)
+        clearButton.setOnClickListener {
+            val editor = sharedPreferences.edit()
+            editor.clear()
+            value.removeAllViews()
+            editor.apply()
+        }
 
         finishButton.setOnClickListener {
             finish()

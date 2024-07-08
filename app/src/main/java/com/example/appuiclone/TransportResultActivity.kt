@@ -32,26 +32,23 @@ class TransportResultActivity : AppCompatActivity() {
         val text1 = sharedPreferences.getStringSet("text", setOf()) ?: setOf()
 
         for (text in text1) {
-            val textView = TextView(this).apply {
-                this.text = "번역할 내용\n${text}\n\n해당 내용 영어 번역 결과\n(대충 영어로 번역한 결과)"
-                textSize = 15f
-                setTypeface(typeface, android.graphics.Typeface.BOLD)
-                layoutParams = LinearLayout.LayoutParams(
+            val textView = TextView(applicationContext)
+                textView.text = "번역할 내용\n${text}\n\n해당 내용 영어 번역 결과\n(대충 영어로 번역한 결과)"
+                textView.textSize = 15f
+                textView.layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
                 ).apply {
                     setMargins(0, 30, 0, 30)
                 }
-            }
             value.addView(textView)
 
-            val div = View(this).apply {
-                layoutParams =
-                    LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 10).apply {
-                        setMargins(0, 0, 0, 0)
-                    }
-                setBackgroundColor(Color.BLACK)
-            }
+            val div = View(applicationContext)
+                div.layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, 10
+                ).apply {
+                    div.setBackgroundColor(Color.BLACK)
+                }
             value.addView(div)
         }
 

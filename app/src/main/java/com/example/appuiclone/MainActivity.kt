@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,6 +28,11 @@ class MainActivity : AppCompatActivity() {
             val transportText = findViewById<EditText>(R.id.tv_language)
             val text = transportText.text.toString()
 
+            if (text.isEmpty()) {
+                Toast.makeText(this, "아무것도 입력하지 않았습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val sharedPreferences = getSharedPreferences("transport", Context.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             val current = sharedPreferences.getStringSet("text", mutableSetOf()) ?: mutableSetOf()
@@ -35,9 +41,6 @@ class MainActivity : AppCompatActivity() {
             editor.apply()
 
             val intent = Intent(this, TransportResultActivity::class.java)
-//            intent.putExtra("text", text)
-//            val transport = text
-//            TransPort.add(transport)
             startActivity(intent)
         }
     }

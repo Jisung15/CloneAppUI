@@ -1,31 +1,50 @@
 package com.example.appuiclone
 
-import android.content.Context
-import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ContentInfoCompat.Flags
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.appuiclone.databinding.ActivityTransportResultBinding
 
 class TransportResultActivity : AppCompatActivity() {
+    private val binding by lazy { ActivityTransportResultBinding.inflate(layoutInflater) }
+
+    companion object {
+        const val STRING = "string"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_transport_result)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        val finishButton = findViewById<Button>(R.id.btn_finish)
+        val intent = intent.getStringExtra(STRING)
+        TransportList.addItem(Item(intent.toString()))
+
+        val adapter = PapapgoAdapter(TransportList.list)
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+
+        binding.recyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+
+        binding.btnClear.setOnClickListener {
+            TransportList.list.clear()
+            adapter.notifyDataSetChanged()
+        }
+
+        binding.btnFinish.setOnClickListener {
+            finish()
+        }
+
+        /*val finishButton = findViewById<Button>(R.id.btn_finish)
         val value = findViewById<LinearLayout>(R.id.lv_value)
 
         val sharedPreferences = getSharedPreferences("transport", Context.MODE_PRIVATE)
@@ -62,6 +81,6 @@ class TransportResultActivity : AppCompatActivity() {
 
         finishButton.setOnClickListener {
             finish()
-        }
+        }*/
     }
 }

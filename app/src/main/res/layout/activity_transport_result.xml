@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,34 +13,33 @@
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="번역 기록"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:text="@string/transport_result_title"
+        style="@style/transport_page_title"
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:layout_weight="0"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/ll_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp"
         android:layout_weight="1">
-        <LinearLayout
-            android:id="@+id/lv_value"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-        </LinearLayout>
-    </ScrollView>
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_clear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="번역 기록 지우기"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:text="@string/clear_button"
+        android:layout_marginHorizontal="20dp"
         android:textSize="25sp"
         android:layout_weight="0"/>
 
@@ -49,9 +47,8 @@
         android:id="@+id/btn_finish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="뒤로 가기"
+        android:layout_marginHorizontal="20dp"
+        android:text="@string/finish_button"
         android:textSize="25sp"
         android:layout_weight="0"/>
 

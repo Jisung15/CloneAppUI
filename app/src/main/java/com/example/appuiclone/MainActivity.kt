@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // sharedPreferences의 흔적
 //            val sharedPreferences = getSharedPreferences("transport", Context.MODE_PRIVATE)
 //            val editor = sharedPreferences.edit()
 //            val current = sharedPreferences.getStringSet("text", mutableSetOf()) ?: mutableSetOf()

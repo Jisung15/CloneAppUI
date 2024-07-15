@@ -44,6 +44,8 @@ class TransportResultActivity : AppCompatActivity() {
             finish()
         }
 
+        // 여기부터는 이전에 TextView 추가하기 도전했던 부분...
+        // RecyclerView를 도전해서 이 부분은 필요없으니 주석 처리
         /*val finishButton = findViewById<Button>(R.id.btn_finish)
         val value = findViewById<LinearLayout>(R.id.lv_value)
 
@@ -82,5 +84,6 @@ class TransportResultActivity : AppCompatActivity() {
         finishButton.setOnClickListener {
             finish()
         }*/
+
     }
 }

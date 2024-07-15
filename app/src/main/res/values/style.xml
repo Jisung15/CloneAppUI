@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="transport_language_text">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
@@ -32,5 +33,22 @@
     <style name="transport_page_title">
         <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="delete_button">
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+    </style>
+
+    <style name="clear_button">
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+    </style>
+
+    <style name="finish_button">
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_marginHorizontal">20dp</item>
     </style>
 </resources>

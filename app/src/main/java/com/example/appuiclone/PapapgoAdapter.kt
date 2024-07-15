@@ -7,17 +7,31 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.appuiclone.databinding.ActivityTransportResultBinding
 import com.example.appuiclone.databinding.RecyclerviewBinding
 
-class PapapgoAdapter (val items : MutableList<Item>) : RecyclerView.Adapter<PapapgoAdapter.Holder>() {
+class PapapgoAdapter(private val items: MutableList<Item>) :
+    RecyclerView.Adapter<PapapgoAdapter.Holder>() {
 
-    inner class Holder(val binding: RecyclerviewBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class Holder(private val binding: RecyclerviewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         var result = binding.tvTransportResultText
     }
+
+    interface OnClick {
+        fun click(view: View, position: Int)
+    }
+
+    var click: OnClick? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PapapgoAdapter.Holder {
-        val binding = RecyclerviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            RecyclerviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return Holder(binding)
     }
 
     override fun onBindViewHolder(holder: PapapgoAdapter.Holder, position: Int) {
+        holder.itemView.setOnClickListener {
+            click?.click(it, position)
+        }
+
         holder.result.text = items[position].string
     }
 

@@ -20,19 +20,19 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:src="@drawable/sidebar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/iv_papago_title"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/icon"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:src="@drawable/icon"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -44,82 +44,82 @@
 
         <TextView
             android:id="@+id/tv_transport1"
+            style="@style/transport_language_text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/transport_language1"
-            style="@style/transport_language_text"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/iv_choice1"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
-            tools:ignore="MissingConstraints"/>
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/iv_choice1"
             android:layout_width="20dp"
             android:layout_height="match_parent"
             android:src="@drawable/choice"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_transport1"
             app:layout_constraintEnd_toStartOf="@id/iv_transport_change_button"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_transport1"
-            app:layout_constraintTop_toTopOf="@+id/tv_transport1"
-            app:layout_constraintStart_toEndOf="@+id/tv_transport1"/>
+            app:layout_constraintStart_toEndOf="@+id/tv_transport1"
+            app:layout_constraintTop_toTopOf="@+id/tv_transport1" />
 
         <ImageView
             android:id="@+id/iv_transport_change_button"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/transport"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_choice1"
             app:layout_constraintEnd_toStartOf="@id/tv_transport2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/iv_choice1"
-            app:layout_constraintTop_toTopOf="@+id/iv_choice1"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_choice1"/>
+            app:layout_constraintTop_toTopOf="@+id/iv_choice1" />
 
         <TextView
             android:id="@+id/tv_transport2"
+            style="@style/transport_language_text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/transport_language2"
-            style="@style/transport_language_text"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_transport_change_button"
             app:layout_constraintEnd_toStartOf="@id/iv_choice2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/iv_transport_change_button"
             app:layout_constraintTop_toTopOf="@id/iv_transport_change_button"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_transport_change_button"
-            tools:ignore="MissingConstraints"/>
+            tools:ignore="MissingConstraints" />
 
         <ImageView
             android:id="@+id/iv_choice2"
             android:layout_width="20dp"
             android:layout_height="match_parent"
             android:src="@drawable/choice"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_transport2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_transport2"
-            app:layout_constraintTop_toTopOf="@+id/tv_transport2"
-            app:layout_constraintStart_toEndOf="@+id/tv_transport2"/>
+            app:layout_constraintStart_toEndOf="@+id/tv_transport2"
+            app:layout_constraintTop_toTopOf="@+id/tv_transport2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/tv_language"
+            style="@style/transport_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.4"
+            android:background="@null"
             android:gravity="center"
-            style="@style/transport_text"
             android:hint="@string/text"
-            android:inputType="textMultiLine"
-            android:background="@null"/>
+            android:inputType="textMultiLine" />
 
         <LinearLayout
             android:id="@+id/button"
@@ -132,28 +132,28 @@
                 android:id="@+id/button1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_weight="1"
                 android:background="@color/green"
-                android:layout_weight="1">
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/iv_button1"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/icon1"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:src="@drawable/icon1" />
 
                 <TextView
                     android:id="@+id/tv_button1"
+                    style="@style/transport_button_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/transport_button1_text"
-                    style="@style/transport_button_text"
-                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:layout_marginBottom="5dp"/>
+                    android:gravity="center"
+                    android:text="@string/transport_button1_text" />
 
             </LinearLayout>
 
@@ -161,28 +161,28 @@
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_weight="1"
                 android:background="@color/cyan"
-                android:layout_weight="1">
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/iv_button2"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/icon2"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:src="@drawable/icon2" />
 
                 <TextView
                     android:id="@+id/tv_button2"
+                    style="@style/transport_button_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/transport_button2_text"
-                    style="@style/transport_button_text"
-                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:layout_marginBottom="5dp"/>
+                    android:gravity="center"
+                    android:text="@string/transport_button2_text" />
 
             </LinearLayout>
 
@@ -190,28 +190,28 @@
                 android:id="@+id/button3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_weight="1"
                 android:background="@color/level1_blue"
-                android:layout_weight="1">
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/iv_button3"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/icon3"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:src="@drawable/icon3" />
 
                 <TextView
                     android:id="@+id/tv_button3"
+                    style="@style/transport_button_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/transport_button3_text"
-                    style="@style/transport_button_text"
-                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:layout_marginBottom="5dp"/>
+                    android:gravity="center"
+                    android:text="@string/transport_button3_text" />
 
             </LinearLayout>
 
@@ -219,28 +219,28 @@
                 android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_weight="1"
                 android:background="@color/level2_blue"
-                android:layout_weight="1">
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/iv_button4"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/icon4"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:src="@drawable/icon4" />
 
                 <TextView
                     android:id="@+id/tv_button4"
+                    style="@style/transport_button_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/transport_button4_text"
-                    style="@style/transport_button_text"
-                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
-                    android:layout_marginBottom="5dp"/>
+                    android:gravity="center"
+                    android:text="@string/transport_button4_text" />
 
             </LinearLayout>
 

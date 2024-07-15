@@ -7,34 +7,34 @@
 
     <TextView
         android:id="@+id/tv_transport_result_title"
+        style="@style/transport_result_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/transport_result_text"
-        style="@style/transport_result_title"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:text="@string/transport_result_text" />
 
     <TextView
         android:id="@+id/tv_transport_result_text"
+        style="@style/transport_result_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/transport_result_text_value"
-        style="@style/transport_result_text"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:text="@string/transport_result_text_value" />
 
     <TextView
         android:id="@+id/tv_transport_result_title2"
+        style="@style/transport_result_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/transport_result_text2"
-        style="@style/transport_result_title"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:text="@string/transport_result_text2" />
 
     <TextView
         android:id="@+id/tv_transport_result_text2"
+        style="@style/transport_result_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/transport_result_text2_value"
-        style="@style/transport_result_text"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:text="@string/transport_result_text2_value" />
 
 </LinearLayout>

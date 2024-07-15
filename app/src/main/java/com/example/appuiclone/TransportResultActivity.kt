@@ -1,7 +1,11 @@
 package com.example.appuiclone
 
+import android.content.DialogInterface
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -28,16 +32,78 @@ class TransportResultActivity : AppCompatActivity() {
 
         val intent = intent.getStringExtra(STRING)
         TransportList.addItem(Item(intent.toString()))
-
         val adapter = PapapgoAdapter(TransportList.list)
+
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
-        binding.recyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                LinearLayoutManager.VERTICAL
+            )
+        )
+
+        adapter.click = object : PapapgoAdapter.OnClick {
+            override fun click(view: View, position: Int) {
+                val builder = AlertDialog.Builder(this@TransportResultActivity)
+                val itemCheck = TransportList.list.getOrNull(position)
+
+                builder.setTitle("번역 기록 확인")
+                builder.setMessage("번역할 문장 또는 단어\n: ${itemCheck?.string}\n\n번역된 문장 또는 단어\n: (대충 영어로 번역한 결과)")
+                val listener = DialogInterface.OnClickListener { dialog, which ->
+                    when (which) {
+                        DialogInterface.BUTTON_POSITIVE -> {
+                            Toast.makeText(
+                                this@TransportResultActivity,
+                                "\"${itemCheck?.string}\"\n의 번역 결과를 확인하셨습니다.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            return@OnClickListener
+                        }
+
+                        DialogInterface.BUTTON_NEGATIVE -> dialog?.dismiss()
+                    }
+                }
+
+                builder.setPositiveButton("확인", listener)
+                builder.setNegativeButton("취소", listener)
+                builder.show()
+            }
+
+        }
+
+        binding.btnDelete.setOnClickListener {
+            if (TransportList.list.isEmpty()) {
+                Toast.makeText(this@TransportResultActivity, "삭제할 항목이 없습니다.", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            } else {
+                val deletedItem = TransportList.list.getOrNull(0)
+                Toast.makeText(
+                    this@TransportResultActivity,
+                    "\"${deletedItem?.string}\"을(를) 번역한 기록을 삭제했습니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                TransportList.list.removeAt(0)
+                adapter.notifyItemRemoved(0)
+                adapter.notifyDataSetChanged()
+                return@setOnClickListener
+            }
+        }
 
         binding.btnClear.setOnClickListener {
-            TransportList.list.clear()
-            adapter.notifyDataSetChanged()
+            if (TransportList.list.isEmpty()) {
+                Toast.makeText(this@TransportResultActivity, "삭제할 항목이 없습니다.", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            } else {
+                TransportList.list.clear()
+                adapter.notifyDataSetChanged()
+                Toast.makeText(this, " 전체 번역 기록을 삭제하였습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
         }
 
         binding.btnFinish.setOnClickListener {

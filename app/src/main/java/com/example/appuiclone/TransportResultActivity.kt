@@ -82,7 +82,7 @@ class TransportResultActivity : AppCompatActivity() {
                 val delete = TransportList.list.getOrNull(0)
                 Toast.makeText(
                     this@TransportResultActivity,
-                    "\"${delete?.string}\"을(를) 번역한 기록을 삭제했습니다.",
+                    "\"${delete?.string}\"\n을(를) 번역한 기록을 삭제했습니다.",
                     Toast.LENGTH_SHORT
                 ).show()
 

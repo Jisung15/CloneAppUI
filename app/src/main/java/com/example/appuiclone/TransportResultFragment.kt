@@ -117,5 +117,4 @@ class TransportResultFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

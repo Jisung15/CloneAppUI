@@ -13,6 +13,7 @@ import com.example.appuiclone.databinding.FragmentResultChoiceBinding
 class ResultChoiceFragment : Fragment() {
     private var _binding: FragmentResultChoiceBinding? = null
     private val binding get() = _binding!!
+
     companion object {
         const val KEY_FRAGMENT_RESULT = "key_fragment_result"
     }
@@ -31,9 +32,9 @@ class ResultChoiceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // 좋아요 확인 버튼 누르면 좋아요 넘어온 개수 확인
-        binding.choiceNumber.setOnClickListener {
-            parentFragmentManager.setFragmentResultListener(KEY_FRAGMENT_RESULT, viewLifecycleOwner) { _, bundle ->
-                val likedItems = bundle.getInt(KEY_FRAGMENT_RESULT)
+        parentFragmentManager.setFragmentResultListener(KEY_FRAGMENT_RESULT, viewLifecycleOwner) { _, bundle ->
+            val likedItems = bundle.getInt(KEY_FRAGMENT_RESULT)
+            binding.choiceNumber.setOnClickListener {
                 Toast.makeText(
                     requireContext(),
                     "좋아요 개수 : ${likedItems} 잘 전달 되었네요!",
@@ -49,5 +50,4 @@ class ResultChoiceFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

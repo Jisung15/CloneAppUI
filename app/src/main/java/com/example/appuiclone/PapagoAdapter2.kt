@@ -38,8 +38,8 @@ class PapapgoAdapter(private val onClick: (Item) -> Unit, private val onLikeClic
             binding.tvTransportResultText.text = item.string
 
             // 초기 좋아요 이미지 설정
-            // isLiked가 false = 빈 하트 상태 / true = 꽉 찬 하트 상태
-            val heartResId = if (item.isLiked) { R.drawable.heart_full } else R.drawable.heart
+            // likedCheck가 false = 빈 하트 상태 / true = 꽉 찬 하트 상태
+            val heartResId = if (item.likedCheck) { R.drawable.heart_full } else R.drawable.heart
             binding.ivChoiceButton.setImageResource(heartResId)
 
             // 아이템 클릭 리스너 설정 (= 아이템 클릭 시 번역 기록 확인 다이얼 로그 뜨는 그거)
@@ -51,10 +51,10 @@ class PapapgoAdapter(private val onClick: (Item) -> Unit, private val onLikeClic
             binding.ivChoiceButton.setOnClickListener {
 
                 // 좋아요 이미지 클릭하면 꽉찬 하트 되면서 좋아요 +1, 다시 누르면 빈 하트 되면서 좋아요 - 1
-                item.isLiked = !item.isLiked
-                item.like += if (item.isLiked) 1 else -1
+                item.likedCheck = !item.likedCheck
+                item.like += if (item.likedCheck) 1 else -1
 
-                val heartImage = if (item.isLiked) {
+                val heartImage = if (item.likedCheck) {
                     R.drawable.heart_full
                 } else R.drawable.heart
                 // 바뀐 이미지로 이미지뷰 하트 이미지 변경

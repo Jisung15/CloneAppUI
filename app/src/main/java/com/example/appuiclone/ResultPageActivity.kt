@@ -1,6 +1,7 @@
 package com.example.appuiclone
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 class ResultPageActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityResultPageBinding.inflate(layoutInflater) }
+    companion object {
+        const val STRING = "string"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,11 +28,13 @@ class ResultPageActivity : AppCompatActivity() {
             insets
         }
 
+        val intent = intent.getStringExtra(STRING) ?: ""
+
         val tabItems = loadMenuItems()
 
         // 그리고 그걸 가지고 Tab Layout과 ViewPager를 연결(?)
         with(binding) {
-            viewPager.adapter = ViewPagerAdapter(this@ResultPageActivity)
+            viewPager.adapter = ViewPagerAdapter(this@ResultPageActivity, intent)
             TabLayoutMediator(tabLayout, viewPager) { tab, position ->
                 tab.text = tabItems[position]
             }.attach()

@@ -17,4 +17,9 @@
     <string name="clear_button">전체 번역\n기록 삭제</string>
     <string name="transport_result_title">번역 기록</string>
     <string name="finish_button">뒤로 가기</string>
+
+    <string name="choice">좋아요 개수 확인</string>
+
+    <string name="tab_1">번역 기록</string>
+    <string name="tab_2">즐겨 찾기</string>
 </resources>

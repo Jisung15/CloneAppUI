@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity() {
 //            editor.putStringSet("text", current)
 //            editor.apply()
 
-            val intent = Intent(this, TransportResultActivity::class.java)
+            // 근데 대체 왜 Activity로 넘기는데 Fragment에서 사용 가능한 거지..?
+            val intent = Intent(this, ResultPageActivity::class.java)
             intent.putExtra(STRING, text)
             startActivity(intent)
         }

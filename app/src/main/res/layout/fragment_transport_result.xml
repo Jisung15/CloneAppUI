@@ -5,12 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"/>
-
-<!-- Activity가 Fragment가 되면서 사라짐-->
-
-<!--
+    android:orientation="vertical"
     tools:context=".TransportResultActivity">
+
 
     <TextView
         android:id="@+id/tv_title"
@@ -71,4 +68,4 @@
         android:layout_weight="0"
         android:text="@string/finish_button" />
 
-</LinearLayout>-->
+</LinearLayout>
